@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGAC - Dashboard</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="dashboard.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">    
+    <link rel="manifest" href="manifest.json">
+</head>
+<body class="iframe-body">
+    <main class="content">
+        <header class="top-bar">
+            <div class="user-welcome">
+                <h1>Painel de Controle</h1>
+                <p>Olá, <span id="nome-usuario-topo" style="font-weight: bold; color: #c19a6b;">Usuário</span></p>
+            </div>
+            <div class="avatar-circle"></div>
+        </header>
+
+        <section class="dashboard-cards">
+            <div class="card">
+                <h3>Pendentes</h3>
+                <p class="card-number">14</p>
+            </div>
+            <div class="card only-admin"> <h3>Logs do Sistema</h3>
+                <p class="card-number">128</p>
+            </div>
+            <div class="card">
+                <h3>ADS Cursos</h3>
+                <p class="card-number">03</p>
+            </div>
+        </section>
+
+        <section class="main-table">
+            <h2>Solicitações Recentes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Protocolo</th>
+                        <th>Aluno</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#2026-001</td>
+                        <td>Matheus Silva</td>
+                        <td><span class="status-badge">Pendente</span></td>
+                        <td><button class="btn-analisar" onclick="window.location.href='analise.html'">Analisar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

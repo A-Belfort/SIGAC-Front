@@ -1,0 +1,177 @@
+/* Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.login-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- COLUNA ESQUERDA (FORMULÁRIO) --- */
+.login-form-side {
+    flex: 1;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.form-content {
+    width: 100%;
+    max-width: 400px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.logo-main {
+    font-family: 'Playfair Display', serif;
+    color: #0a2540;
+    font-size: 2.8rem;
+    margin-bottom: 8px;
+}
+
+.system-subtitle {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+.field-group {
+    margin-bottom: 20px;
+}
+
+.field-group label {
+    display: block;
+    font-weight: 600;
+    color: #0a2540;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.field-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #f8fafc;
+    font-size: 1rem;
+}
+
+.row-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 0.85rem;
+}
+
+.forgot-link {
+    color: #c19a6b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-access {
+    width: 100%;
+    padding: 16px;
+    background: #0a2540;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(10, 37, 64, 0.2);
+}
+
+.footer-notice {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+}
+
+/* --- COLUNA DIREITA (GRID INFOS) --- */
+.login-info-side {
+    flex: 1.2;
+    background-color: #f8fafc;
+    /* Efeito de Grade Pontilhada */
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 30px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+}
+
+.info-box {
+    max-width: 500px;
+    text-align: center;
+}
+
+.admin-badge {
+    display: inline-block;
+    background: #ffffff;
+    padding: 8px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.display-title {
+    font-family: 'Playfair Display', serif;
+    color: #0a2540;
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+}
+
+.display-text {
+    font-size: 1.15rem;
+    color: #1e293b;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stat-num {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #c19a6b;
+    font-weight: 700;
+}
+
+.stat-txt {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .login-info-side { display: none; }
+}

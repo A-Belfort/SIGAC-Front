@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGAC - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body class="login-page">
+    <main class="login-container">
+        
+        <section class="login-form-side">
+            <div class="form-content">
+                <h1 class="logo-main">SIGAC</h1>
+                <p class="system-subtitle">Sistema de Gestão de Atividades Complementares</p>
+
+                <form id="loginForm">
+                    <div class="field-group">
+                        <label for="email">E-mail institucional</label>
+                        <input type="email" id="email" placeholder="email@senac.br" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                    
+                    <div class="row-options">
+                        <label class="check-label">
+                            <input type="checkbox"> Lembrar de mim
+                        </label>
+                        <a href="#" class="forgot-link">Esqueceu a senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-access">Acessar Painel</button>
+                </form>
+                <p class="footer-notice">Acesso restrito a coordenadores e administradores</p>
+            </div>
+        </section>
+
+        <section class="login-info-side">
+            <div class="info-box">
+                <h2 class="display-title">Gestão Completa do Sistema</h2>
+                <p class="display-text">Configure cursos, gerencie usuários e tenha acesso total ao sistema com logs de auditoria completos.</p>
+                
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <span class="stat-num">8</span>
+                        <span class="stat-txt">Cursos</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">12</span>
+                        <span class="stat-txt">Coordenadores</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">450</span>
+                        <span class="stat-txt">Alunos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    <script src="main.js"></script>
+    
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('SW registrado com sucesso!', reg))
+            .catch(err => console.error('Falha ao registrar o SW:', err));
+        });
+      }
+    </script>
+</body>
+</html>
