@@ -1,65 +1,45 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const perfil = localStorage.getItem('perfilLogado');
     const nomeUsuario = localStorage.getItem('nomeUsuario');
 
-    // =========================
-    // CONTROLE DE ACESSO
-    // =========================
-    if (!window.location.pathname.includes('index.html')) {
-        if (!perfil) {
-            window.location.href = 'index.html';
-            return;
-        }
-    }
 
-    const nomeTopo = document.getElementById('nome-usuario-topo');
-    if (nomeTopo) nomeTopo.innerText = nomeUsuario || '';
-
-    if (perfil !== 'admin') {
-        document.querySelectorAll('.only-admin').forEach((item) => {
-            item.remove();
+    if (perfil === 'coordenador') {
+        // Agora isso vai rodar em qualquer página, inclusive na de Cursos!
+        document.querySelectorAll('.only-admin').forEach(item => {
+            item.style.setProperty('display', 'none', 'important');
+        });
+    } else if (perfil === 'admin') {
+        // Garante que o Admin veja os itens (caso o CSS tenha escondido por padrão)
+        document.querySelectorAll('.only-admin').forEach(item => {
+            item.style.setProperty('display', 'flex', 'important');
         });
     }
 
-    // =========================
-    // LOGIN
-    // =========================
+    // === 1. SISTEMA DE LOGIN E CADASTRO ===
     const loginForm = document.getElementById('loginForm');
-
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-
             const email = document.getElementById('email').value.trim().toLowerCase();
-            const senha = document.getElementById('password').value;
+            const password = document.getElementById('password').value;
 
-            if (email === 'admin@senac.br' && senha === 'admin123') {
+            if (email === 'admin@senac.br' && password === 'admin123') {
                 localStorage.setItem('perfilLogado', 'admin');
                 localStorage.setItem('nomeUsuario', 'Administrador');
                 window.location.href = 'home.html';
-                return;
-            }
-
-            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-            const usuario = usuarios.find(
-                u => u.email.toLowerCase() === email && u.senha === senha
-            );
-
-            if (usuario) {
-                localStorage.setItem('perfilLogado', usuario.tipo);
-                localStorage.setItem('nomeUsuario', usuario.nome);
+            } 
+            else if (email === 'coordenador@senac.br' && password === 'senac123') {
+                localStorage.setItem('perfilLogado', 'coordenador');
+                localStorage.setItem('nomeUsuario', 'Coordenadora Ameliara Freire');
                 window.location.href = 'home.html';
-            } else {
-                alert('Credenciais incorretas.');
+            } 
+            else {
+                alert('Credenciais incorretas. Tente novamente.');
             }
         });
     }
 
-    // =========================
     // CADASTRO CURSO
-    // =========================
     const formCurso = document.getElementById('formCadastroCurso');
 
     if (formCurso) {
@@ -81,9 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // =========================
     // PREENCHER SELECTS DE CURSO
-    // =========================
     function preencherSelectCursos(selectId) {
         const select = document.getElementById(selectId);
         if (!select) return;
@@ -211,6 +189,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================
+    // LISTAR COORDENADORES
+    // =========================
+const listaCoordenadores = document.getElementById('listaCoordenadores');
+
+if (listaCoordenadores) {
+    listaCoordenadores.innerHTML = '';
+
+    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    // 🔥 FILTRA APENAS COORDENADORES
+    const coordenadores = usuarios.filter((u) => u.tipo === 'coordenador');
+
+    if (coordenadores.length === 0) {
+        listaCoordenadores.innerHTML = `
+            <tr>
+                <td colspan="4" style="text-align:center;">
+                    Nenhum coordenador cadastrado.
+                </td>
+            </tr>
+        `;
+        return;
+    }
+
+    coordenadores.forEach((coord) => {
+        listaCoordenadores.innerHTML += `
+            <tr>
+                <td>${coord.nome}</td>
+                <td>${coord.email}</td>
+                <td>${coord.matricula}</td>
+                <td>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+    // =========================
     // CADASTRO COORDENADOR
     // =========================
     const formCoordenador = document.getElementById('formCadastroCoordenador');
@@ -235,4 +251,5 @@ document.addEventListener('DOMContentLoaded', () => {
             formCoordenador.reset();
         });
     }
+
 });
