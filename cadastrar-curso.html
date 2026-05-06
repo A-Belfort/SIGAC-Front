@@ -10,22 +10,6 @@
     <link rel="manifest" href="manifest.json">
 </head>
 <body class="dashboard-body">
-
-    <aside class="sidebar">
-        <h2 class="logo-main" style="color: white; font-size: 1.8rem; text-align: center; margin-bottom: 30px;">SIGAC</h2>
-       <nav class="menu">
-            <a href="dashboard.html"><i class="fa-solid fa-house"></i> Home</a>
-            
-            <a href="listar-alunos.html"><i class="fa-solid fa-users"></i> Alunos</a>
-            
-            <a href="listar-cursos.html"><i class="fa-solid fa-graduation-cap"></i> Cursos</a>
-            <a href="#"><i class="fa-solid fa-file-invoice"></i> Relatórios</a>
-            
-            <div style="flex-grow: 1;"></div>
-            <a href="index.html" class="logout" onclick="localStorage.clear()"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
-        </nav>    
-    </aside>
-
     <main class="content">
         <header class="top-bar">
             <h1>Cadastrar Novo Curso</h1>
@@ -35,13 +19,13 @@
             <form id="formCurso">
                 <div class="field-group">
                     <label>Nome do Curso</label>
-                    <input type="text" placeholder="Ex: Design Gráfico" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <input type="text" placeholder="Ex: Design Gráfico" id="nome_curso" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
                     <div class="field-group">
                         <label>Carga Horária (Horas)</label>
-                        <input type="number" placeholder="2000" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                        <input type="number" placeholder="2000" id="carga_horaria" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
                     </div>
                     <div class="field-group">
                         <label>Modalidade</label>
@@ -60,5 +44,6 @@
             </form>
         </section>
     </main>
+    <script src="server.js"></script>
 </body>
 </html>
