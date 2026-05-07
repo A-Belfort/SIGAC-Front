@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração de Regras - SIGAC</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="validacao.css">
+    <link rel="stylesheet" href="alunos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+    <main class="content" style="margin-left: 0 !important; padding-left: 280px !important; width: 100%;">
+        
+        <div class="rules-container" style="max-width: 1000px; margin-left: 0;">
+
+            <!-- HEADER -->
+            <header class="rules-header">
+                <h1>Configuração de Regras</h1>
+                <p>Defina limites e requisitos de horas por área de atividades complementares</p>
+            </header>
+
+            <!-- 🔥 NOVO: SELEÇÃO DE CURSO -->
+            <div class="main-card" style="margin-bottom: 20px;">
+                <div class="input-group">
+                    <label>Selecionar Curso</label>
+                    <select id="selectCurso" class="sigac-input">
+                        <option value="">Selecione um curso</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- CARD PRINCIPAL -->
+            <div class="main-card">
+
+                <div class="course-info">
+                    <h2 id="nomeCurso">Curso</h2>
+                    <span class="course-code" id="codigoCurso">Código: -</span>
+                </div>
+                
+                <div class="hours-summary">
+
+                    <div class="input-group">
+                        <label>Total de Horas Requeridas</label>
+                        <input type="number" value="0" class="sigac-input" id="totalHoras">
+                    </div>
+
+                    <div class="total-badge">
+                        <span>Total Configurado nas Áreas</span>
+                        <strong id="totalConfigurado">0h</strong>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- DIVISÃO -->
+            <div class="section-divider">
+                <h3>Áreas de Atividades</h3>
+                <button class="btn-add-area" id="btnAddArea">
+                    <i class="fa-solid fa-plus"></i> Adicionar Área
+                </button>
+            </div>
+
+            <!-- LISTA DINÂMICA -->
+            <div class="areas-list" id="listaAreas">
+
+                <!-- Áreas serão inseridas via JavaScript -->
+
+                <div style="padding: 20px; text-align: center; color: #64748b;">
+                    Nenhuma área cadastrada ainda.
+                </div>
+
+            </div>
+            
+        </div>
+
+    </main>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
